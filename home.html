@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Paris — La Ville Lumière</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+
+<style>
+
+:root{
+--gold:#C9A96E;
+--dark:#0e0c0a;
+--cream:#F5F0E8;
+--red:#8B1A1A;
+--mid:#2a2520;
+--text:#3a3530;
+}
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+html{
+scroll-behavior:smooth;
+}
+
+body{
+font-family:'Jost',sans-serif;
+background:var(--dark);
+color:var(--cream);
+overflow-x:hidden;
+}
+
+/* NAV */
+
+nav{
+position:fixed;
+top:0;
+width:100%;
+z-index:100;
+padding:1.2rem 3rem;
+display:flex;
+justify-content:space-between;
+align-items:center;
+background:linear-gradient(to bottom, rgba(14,12,10,0.95), transparent);
+}
+
+.nav-logo{
+font-family:'Cormorant Garamond',serif;
+font-size:1.6rem;
+letter-spacing:0.2em;
+color:var(--gold);
+}
+
+.nav-links{
+display:flex;
+gap:2rem;
+list-style:none;
+}
+
+.nav-links a{
+font-size:0.75rem;
+letter-spacing:0.15em;
+text-transform:uppercase;
+color:var(--cream);
+text-decoration:none;
+opacity:0.8;
+}
+
+.nav-links a:hover{
+color:var(--gold);
+opacity:1;
+}
+
+/* HERO */
+
+.hero{
+height:100vh;
+display:flex;
+align-items:center;
+justify-content:center;
+text-align:center;
+position:relative;
+}
+
+.hero-bg{
+position:absolute;
+inset:0;
+background:
+linear-gradient(160deg, rgba(14,12,10,0.3), rgba(14,12,10,0.7)),
+url("https://images.unsplash.com/photo-1502602898657-3e91760cbb34") center/cover no-repeat;
+}
+
+.hero-content{
+position:relative;
+z-index:2;
+max-width:800px;
+padding:2rem;
+}
+
+.hero-tag{
+font-size:0.7rem;
+letter-spacing:0.4em;
+text-transform:uppercase;
+color:var(--gold);
+margin-bottom:1.5rem;
+}
+
+h1{
+font-family:'Cormorant Garamond',serif;
+font-size:clamp(4rem,10vw,8rem);
+font-weight:300;
+line-height:0.9;
+}
+
+h1 em{
+font-style:italic;
+color:var(--gold);
+}
+
+.slogan{
+font-family:'Cormorant Garamond',serif;
+font-size:1.4rem;
+font-style:italic;
+margin-top:1.5rem;
+}
+
+.intro-text{
+margin-top:2rem;
+font-size:0.9rem;
+line-height:1.8;
+opacity:0.85;
+}
+
+.hero-btn{
+display:inline-block;
+margin-top:2rem;
+padding:0.8rem 2rem;
+border:1px solid var(--gold);
+color:var(--gold);
+text-decoration:none;
+letter-spacing:0.2em;
+}
+
+.hero-btn:hover{
+background:var(--gold);
+color:var(--dark);
+}
+
+/* SECTIONS */
+
+section{
+padding:6rem 2rem;
+}
+
+.container{
+max-width:1100px;
+margin:auto;
+}
+
+/* ABOUT */
+
+.about{
+background:var(--mid);
+}
+
+.about-grid{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:3rem;
+align-items:center;
+}
+
+.about-image img{
+width:100%;
+height:450px;
+object-fit:cover;
+}
+
+/* ATTRACTIONS */
+
+.attractions-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+gap:2rem;
+margin-top:3rem;
+}
+
+.attraction-card{
+position:relative;
+height:380px;
+overflow:hidden;
+}
+
+.attraction-card img{
+width:100%;
+height:100%;
+object-fit:cover;
+}
+
+.attraction-overlay{
+position:absolute;
+bottom:0;
+padding:2rem;
+background:linear-gradient(to top, rgba(0,0,0,0.9), transparent);
+}
+
+.attraction-name{
+font-family:'Cormorant Garamond',serif;
+font-size:1.8rem;
+}
+
+/* FOOD */
+
+.food{
+background:var(--mid);
+}
+
+.food-items{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+gap:2rem;
+margin-top:2rem;
+}
+
+.food-card{
+border:1px solid rgba(201,169,110,0.2);
+padding:2rem;
+text-align:center;
+}
+
+.food-name{
+font-family:'Cormorant Garamond',serif;
+color:var(--gold);
+font-size:1.5rem;
+margin-bottom:0.5rem;
+}
+
+/* CULTURE */
+
+.culture-grid{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:2rem;
+margin-top:2rem;
+}
+
+.culture-item{
+border-top:1px solid rgba(201,169,110,0.3);
+padding:1.5rem;
+}
+
+.culture-item h3{
+color:var(--gold);
+font-family:'Cormorant Garamond',serif;
+}
+
+/* FOOTER */
+
+footer{
+border-top:1px solid rgba(201,169,110,0.2);
+text-align:center;
+padding:3rem;
+}
+
+.logo{
+font-family:'Cormorant Garamond',serif;
+font-size:2rem;
+letter-spacing:0.3em;
+color:var(--gold);
+}
+
+@media(max-width:768px){
+
+.about-grid,
+.culture-grid{
+grid-template-columns:1fr;
+}
+
+.nav-links{
+display:none;
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- NAV -->
+
+<nav>
+<div class="nav-logo">PARIS</div>
+
+<ul class="nav-links">
+<li><a href="#apropos">À propos</a></li>
+<li><a href="#attractions">Attractions</a></li>
+<li><a href="#gastronomie">Gastronomie</a></li>
+<li><a href="#culture">Culture</a></li>
+</ul>
+</nav>
+
+<!-- HERO -->
+
+<section class="hero">
+
+<div class="hero-bg"></div>
+
+<div class="hero-content">
+
+<div class="hero-tag">France • Île-de-France</div>
+
+<h1>La Ville <br><em>Lumière</em></h1>
+
+<p class="slogan">Découvrez la magie de Paris</p>
+
+<p class="intro-text">
+Bienvenue à Paris, la capitale de la France connue pour son art,
+son architecture élégante et sa gastronomie.
+Chaque année, des millions de visiteurs viennent découvrir
+les monuments historiques et l'atmosphère romantique de cette ville.
+</p>
+
+<a href="#apropos" class="hero-btn">Explorer Paris</a>
+
+</div>
+</section>
+
+<!-- ABOUT -->
+
+<section class="about" id="apropos">
+
+<div class="container">
+
+<div class="about-grid">
+
+<div class="about-image">
+<img src="https://images.unsplash.com/photo-1431274172761-fca41d930114" loading="lazy">
+</div>
+
+<div>
+<h2>Paris, capitale de la France</h2>
+
+<p>
+Paris est l'une des villes les plus visitées au monde.
+Située au nord de la France, elle est célèbre pour
+ses boulevards, ses cafés et ses monuments historiques.
+</p>
+
+</div>
+
+</div>
+
+</div>
+</section>
+
+<!-- ATTRACTIONS -->
+
+<section id="attractions">
+
+<div class="container">
+
+<h2>Les sites incontournables</h2>
+
+<div class="attractions-grid">
+
+<div class="attraction-card">
+
+<img src="https://images.unsplash.com/photo-1543349689-9a4d426bee8e" loading="lazy">
+
+<div class="attraction-overlay">
+<div class="attraction-name">Tour Eiffel</div>
+</div>
+
+</div>
+
+<div class="attraction-card">
+
+<img src="https://images.unsplash.com/photo-1565099824688-e93eb20fe622" loading="lazy">
+
+<div class="attraction-overlay">
+<div class="attraction-name">Musée du Louvre</div>
+</div>
+
+</div>
+
+<div class="attraction-card">
+
+<img src="https://images.unsplash.com/photo-1478391679764-b2d8b3cd1e94" loading="lazy">
+
+<div class="attraction-overlay">
+<div class="attraction-name">Notre-Dame</div>
+</div>
+
+</div>
+
+<div class="attraction-card">
+
+<img src="https://images.unsplash.com/photo-1552465011-b4e21bf6e79a" loading="lazy">
+
+<div class="attraction-overlay">
+<div class="attraction-name">Montmartre</div>
+</div>
+
+</div>
+
+<div class="attraction-card">
+
+<img src="https://images.unsplash.com/photo-1499856871958-5b9627545d1a" loading="lazy">
+
+<div class="attraction-overlay">
+<div class="attraction-name">La Seine</div>
+</div>
+
+</div>
+
+</div>
+
+</div>
+</section>
+
+<!-- GASTRONOMY -->
+
+<section class="food" id="gastronomie">
+
+<div class="container">
+
+<h2>Gastronomie française</h2>
+
+<div class="food-items">
+
+<div class="food-card">
+<div class="food-name">Croissant</div>
+<p>Pâtisserie traditionnelle française.</p>
+</div>
+
+<div class="food-card">
+<div class="food-name">Croque-Monsieur</div>
+<p>Sandwich chaud jambon fromage.</p>
+</div>
+
+<div class="food-card">
+<div class="food-name">Crème Brûlée</div>
+<p>Dessert classique au caramel.</p>
+</div>
+
+<div class="food-card">
+<div class="food-name">Coq au Vin</div>
+<p>Poulet mijoté dans le vin rouge.</p>
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- CULTURE -->
+
+<section class="culture" id="culture">
+
+<div class="container">
+
+<h2>Culture parisienne</h2>
+
+<div class="culture-grid">
+
+<div class="culture-item">
+<h3>Festivals</h3>
+<p>Paris organise des événements culturels toute l'année.</p>
+</div>
+
+<div class="culture-item">
+<h3>Arts</h3>
+<p>La ville possède plus de 130 musées.</p>
+</div>
+
+<div class="culture-item">
+<h3>Mode</h3>
+<p>Paris Fashion Week attire les designers du monde entier.</p>
+</div>
+
+<div class="culture-item">
+<h3>Vie nocturne</h3>
+<p>Cabarets, cafés et clubs animent la ville la nuit.</p>
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- FOOTER -->
+
+<footer>
+
+<div class="logo">PARIS</div>
+
+<p>La Ville Lumière · France</p>
+
+<p>Site touristique pour les voyageurs</p>
+
+</footer>
+
+</body>
+</html>
